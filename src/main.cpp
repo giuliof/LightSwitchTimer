@@ -47,7 +47,7 @@ ISR(INT0_vect){
 }   
 
 ISR(TIM0_OVF_vect){
-    if (timer == 1) {
+    if (timer == 3840) {
         TCCR0B &= ~(_BV(CS02) | _BV(CS00));
         
         timer = 0;
@@ -79,7 +79,7 @@ int main() {
     // unlock prescaler
     CLKPR = _BV(CLKPCE);
     // set prescaling factor
-    CLKPR = _BV(CLKPS3);
+    CLKPR = _BV(CLKPS3)
     
     PLLCSR &= ~_BV(PLLE);
 
